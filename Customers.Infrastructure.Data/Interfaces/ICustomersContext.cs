@@ -1,0 +1,23 @@
+﻿
+
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Customers.Objects.Objects;
+
+namespace Customers.Infrastructure.Data.Interfaces
+{
+    public interface ICustomersContext
+    {
+        DbSet<CustomersData> CustomersData { get; set; }
+
+
+
+        DatabaseFacade DataBase { get; set; }
+
+        int SaveChanges();
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken));
+    }
+}
